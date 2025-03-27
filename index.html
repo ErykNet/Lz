@@ -21,7 +21,6 @@
             min-height: 100vh;
             flex-direction: column;
             padding: 20px;
-            overflow: hidden;
         }
 
         @keyframes gradientBG {
@@ -132,23 +131,6 @@
                 padding: 8px 15px;
             }
         }
-
-        /* 🌹 Estilos para los pétalos cayendo */
-        .petal {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-image: url('https://i.postimg.cc/Sx2dZrLx/rose-petal.png');
-            background-size: cover;
-            opacity: 0.8;
-            pointer-events: none;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100vh) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
-        }
     </style>
 </head>
 <body>
@@ -162,7 +144,7 @@
             Eres una persona increíble y quiero seguir compartiendo momentos hermosos a tu lado.
         </p>
         <br>
-        <a href="#" class="button">.., Luz ❤️</a>
+        <a href="#" class="button">Te quiero, Luz ❤️</a>
         <div class="sad-face">😞</div> <!-- Carita triste -->
         <button class="music-btn" onclick="playMusic()">🎵 Reproducir Música</button>
     </div>
@@ -170,34 +152,13 @@
     <!-- Música de fondo -->
     <iframe id="music" src="https://www.youtube.com/embed/aYsFb7S8LFc?autoplay=1&loop=1&playlist=aYsFb7S8LFc" allow="autoplay"></iframe>
 
-    <!-- 🌹 Script para pétalos cayendo -->
+    <!-- Activar música al hacer clic en el botón -->
     <script>
         function playMusic() {
             let music = document.getElementById("music");
             music.style.display = "block";
             music.src += "&autoplay=1"; // Activa la reproducción
         }
-
-        function createPetal() {
-            const petal = document.createElement("div");
-            petal.classList.add("petal");
-            document.body.appendChild(petal);
-
-            let startPosition = Math.random() * window.innerWidth;
-            let duration = Math.random() * 5 + 5; // Duración de caída entre 5 y 10s
-            let size = Math.random() * 20 + 10; // Tamaño entre 10px y 30px
-
-            petal.style.left = startPosition + "px";
-            petal.style.animationDuration = duration + "s";
-            petal.style.width = size + "px";
-            petal.style.height = size + "px";
-
-            setTimeout(() => {
-                petal.remove();
-            }, duration * 1000);
-        }
-
-        setInterval(createPetal, 500); // Crea un pétalo cada 0.5s
     </script>
 
 </body>
